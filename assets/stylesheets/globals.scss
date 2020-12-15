@@ -1,0 +1,13 @@
+body {
+  background: var(--background-primary);
+  color: var(--text-primary);
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-link);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
