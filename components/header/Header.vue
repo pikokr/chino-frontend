@@ -9,10 +9,7 @@
     </h2>
     <div>
       <div v-if="$store.state.user">
-        <div
-          class="popover-button"
-          @click.stop="userPopoverOpen = !userPopoverOpen"
-        >
+        <div class="popover-button" @click.stop="userPopoverOpen = true">
           <img
             :src="
               $store.state.user.avatar
@@ -36,6 +33,10 @@
         <div :class="{ 'popover-container': true, show: userPopoverOpen }">
           POPOVER
         </div>
+        <div
+          :class="{ backdrop: true, show: userPopoverOpen }"
+          @click="userPopoverOpen = false"
+        />
       </div>
       <Button v-else :href="$store.state.backend + '/auth/login'"
         >로그인</Button
@@ -61,6 +62,20 @@ export default {
   flex-direction: row;
   align-items: center;
 }
+
+.backdrop {
+  background: transparent;
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  &.show {
+    pointer-events: unset;
+  }
+}
+
 .popover-container {
   background: var(--background-secondary);
   border-radius: 3px;
@@ -78,6 +93,7 @@ export default {
 
   transform: translateY(0);
   transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  z-index: 99999;
 }
 .popover-button {
   cursor: pointer;
