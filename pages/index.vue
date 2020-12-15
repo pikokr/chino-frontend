@@ -1,12 +1,7 @@
 <template>
-  <div>
-    Home
-    <nuxt-link to="/test">와</nuxt-link>
-  </div>
+  <div>으어</div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({})
+export default {}
 </script>
