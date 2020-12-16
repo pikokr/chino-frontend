@@ -54,6 +54,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  z-index: 9999999;
 }
 
 @keyframes loader-animation {

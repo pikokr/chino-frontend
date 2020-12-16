@@ -30,8 +30,18 @@
             }"
           />
         </div>
-        <div :class="{ 'popover-container': true, show: userPopoverOpen }">
-          POPOVER
+        <div
+          :class="{ 'popover-container': true, show: userPopoverOpen }"
+          @click="userPopoverOpen = false"
+        >
+          <div style="display: flex; flex-direction: column">
+            <nuxt-link to="/servers" class="user-menu-item"
+              >서버 선택하기</nuxt-link
+            >
+            <nuxt-link to="/auth/logout" class="user-menu-item red"
+              >로그아웃</nuxt-link
+            >
+          </div>
         </div>
         <div
           :class="{ backdrop: true, show: userPopoverOpen }"
@@ -79,7 +89,7 @@ export default {
 .popover-container {
   background: var(--background-secondary);
   border-radius: 3px;
-  padding: 10px;
+  padding: 5px;
   position: absolute;
   top: 50px;
   right: 10px;
@@ -126,5 +136,24 @@ export default {
   @media (max-width: 768px) {
     display: none;
   }
+}
+
+.user-menu-item {
+  padding: 10px;
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 3px;
+  background: transparent;
+  transition: background-color 0.2s ease;
+  &:hover {
+    background: #555;
+  }
+  &.red {
+    color: var(--text-red);
+  }
+}
+
+.user-menu-item + .user-menu-item {
+  margin-top: 5px;
 }
 </style>
