@@ -1,23 +1,33 @@
 <template>
   <transition name="loader">
     <div v-if="loading" class="loader-container">
-      <div class="loading" />
+      <!--      <div class="loading" />-->
+      <radar-spinner
+        :size="100"
+        color="var(--text-primary)"
+        :animation-duration="2000"
+      />
     </div>
   </transition>
 </template>
 
 <script>
+import { RadarSpinner } from 'epic-spinners'
+
 export default {
   name: 'Loader',
+  components: {
+    RadarSpinner,
+  },
   data: () => ({
-    loading: false,
+    loading: true,
   }),
   methods: {
     start() {
       this.loading = true
     },
     finish() {
-      this.loading = false
+      setTimeout(() => (this.loading = false), 500)
     },
   },
 }
