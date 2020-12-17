@@ -1,7 +1,8 @@
 <template>
   <div>
     <div v-for="guild in servers" :key="guild.id" ref="item" class="item">
-      {{ guild.name }}
+      <span style="flex-grow: 1">{{ guild.name }}</span>
+      <Button>버튼!</Button>
     </div>
   </div>
 </template>
@@ -9,11 +10,13 @@
 <script lang="ts">
 import { Context } from '@nuxt/types'
 import { TimelineMax } from 'gsap'
+import Button from '~/components/basic/Button.vue'
 
 const tl = new TimelineMax()
 
 export default {
   name: 'Servers',
+  components: { Button },
   async asyncData(ctx: Context) {
     if (!ctx.app.$cookies.get('_TOKEN')) return ctx.redirect('/')
     try {
@@ -49,6 +52,8 @@ export default {
 <style lang="scss" scoped>
 .item {
   padding: 20px;
+  display: flex;
+  align-items: center;
   margin: 10px;
   background-color: var(--background-secondary);
   border-radius: 3px;

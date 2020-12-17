@@ -23,6 +23,9 @@ export default {
 <style scoped lang="scss">
 .btn {
   user-select: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   border-radius: 3px;
   font-weight: 500;
