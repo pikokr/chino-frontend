@@ -40,6 +40,7 @@ export default {
       stagger: 0.1,
     }).to(item, {
       opacity: 1,
+      delay: 200,
     })
   },
 }

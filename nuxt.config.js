@@ -31,6 +31,8 @@ export default {
   modules: ['@nuxtjs/axios', 'cookie-universal-nuxt', '@nuxt/http'],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+  build: {
+    transpile: ['gsap', 'epic-spinners'],
+  },
   loading: '~/components/Loader.vue',
 }

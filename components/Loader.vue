@@ -11,7 +11,7 @@
   </transition>
 </template>
 
-<script>
+<script lang="ts">
 import { RadarSpinner } from 'epic-spinners'
 
 export default {
@@ -20,14 +20,16 @@ export default {
     RadarSpinner,
   },
   data: () => ({
-    loading: true,
+    loading: false,
   }),
   methods: {
     start() {
+      // @ts-ignore
       this.loading = true
     },
     finish() {
-      setTimeout(() => (this.loading = false), 500)
+      // @ts-ignore
+      setTimeout(() => (this.loading = false), 200)
     },
   },
 }
